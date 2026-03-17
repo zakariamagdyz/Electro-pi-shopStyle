@@ -37,6 +37,11 @@ jobs:
   deploy-vercel:
     name: Deploy to Vercel
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+      pull-requests: write
+      statuses: write
     # Requires the prior job to complete successfully first
     needs: lint-and-typecheck
     steps:
