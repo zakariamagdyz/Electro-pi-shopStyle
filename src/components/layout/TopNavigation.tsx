@@ -1,6 +1,5 @@
-import Link from "next/link";
-import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function TopNavigation() {
   return (
@@ -11,17 +10,6 @@ export default function TopNavigation() {
             ShopStyle
           </span>
         </Link>
-        <div className="hidden md:flex relative items-center group input-container">
-          <span className="material-symbols-outlined absolute left-3 text-muted-foreground z-10 text-[20px]">
-            search
-          </span>
-          <Input
-            className="bg-accent border-none pl-10 pr-4 py-2 w-64 text-sm focus-visible:ring-0 rounded-none placeholder:text-muted-foreground/50 shadow-none"
-            placeholder="Search curated collection..."
-            type="text"
-          />
-          <div className="input-focus-line absolute inset-0 pointer-events-none"></div>
-        </div>
       </div>
       <div className="flex items-center gap-6">
         <button className="flex items-center gap-2 hover:opacity-70 transition-opacity text-foreground">
