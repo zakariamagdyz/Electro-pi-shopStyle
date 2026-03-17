@@ -3,6 +3,7 @@ import BottomNavigation from "@/components/layout/BottomNavigation";
 import Footer from "@/components/layout/Footer";
 import TopNavigation from "@/components/layout/TopNavigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProductDetailsPage() {
   const relatedProducts = [
@@ -59,36 +60,36 @@ export default function ProductDetailsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           {/* Left Pane: Image Gallery */}
           <div className="lg:col-span-7 flex flex-col gap-6">
-            <div className="aspect-[4/5] w-full bg-accent rounded-lg overflow-hidden group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <div className="relative aspect-[4/5] w-full bg-accent rounded-lg overflow-hidden group">
+              <Image
+                fill
                 alt="Main product view"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1z1OXC_dbIt7Gbu76jNjSlZb_jusq5aissz0fhOdlKey9VJTFPwcrtxd68FNT07jUo8iEdgrsUaPk0AgXqt3nuOkWhiXQm4MWUSLBKlmVFMnPgYSFJBLv2D082vsdY-pPORLtiVl6AJojCCSIyOwEEiknhrouYNiQdzYBP0pXnNuBArTQjEhTLdYxj8R4Ap8yiv6cL1qQ5RdtDo3r8-YyRIeRuQ-5-XPfV_iNHeo5YHgSyXZhVovLkMTEfrVNafbDSqEHH_EnBLU"
               />
             </div>
             <div className="grid grid-cols-4 gap-4">
-              <div className="aspect-square bg-secondary rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              <div className="relative aspect-square bg-secondary rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+                <Image
+                  fill
                   alt="Thumbnail 1"
-                  className="w-full h-full object-cover"
+                  className="object-cover"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFrCb9Wi-JFyGB_SdXgsgUnOuKJmwjXcN3PWSAfbZZgXULpt57BHZ6Hf2iD9qHDnKQrM1fk-nrsZAed0hxEY6nXAk-OTs78mns4XSBBWnAnSfLMU8J6-IKwsMjZe5t0gYCPrkZgk1tKg35w_IrJYKhzKAhOHs8ZkwVFYfC6-HcFAwTmTzyymTsk06fWHaS-biKHrsIUtcnvyDZVt1HysBTc8ApF8zVRQT25TggRR5BNszvV3d_J3VXplqNiEgyeD1aL5N56SRgIOw"
                 />
               </div>
-              <div className="aspect-square bg-secondary rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              <div className="relative aspect-square bg-secondary rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+                <Image
+                  fill
                   alt="Thumbnail 2"
-                  className="w-full h-full object-cover"
+                  className="object-cover"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFZcuW8u_0xoahL8cZfhNCj_k77rC8ZVYFYvRXui0Mf6FwYjA1IyVUUsmQkvvGDB1rlPLT6X4sk9myBt1-QXT82AsRQbw7A6bhisaqd_i_CbxK-FjCUlMTgTy1eoSaEzuIAvCIlMuMkINfDu8hIQnKnXLJX0YLP6g5hsQQwGsK_evzGebq-MMcMCqxTvHAwxUpzSmYk1aePp9_h7rAYY-iYU_9BcW4_FkkBKC_uxey2VzKnUNX8sZ4ovIpRm5TEiofZQF3blYW9k0"
                 />
               </div>
-              <div className="aspect-square bg-secondary rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              <div className="relative aspect-square bg-secondary rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+                <Image
+                  fill
                   alt="Thumbnail 3"
-                  className="w-full h-full object-cover"
+                  className="object-cover"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFYA9DckOtygWr_sIGUDghiwZOKfkRwrqjS4NtU6uLNegQcmpNEnuskJu_mpLHlxZrcsSLtaK1Ek8HwIDPXSjDnYoUiHm3pGKyHNyOG6aJQzblPg-cljAvo_jdLT-a4crWcWHVDd8vRjYlCeA9UTOeIag2_d2Eyqo9gYwWBKbcBDJ58fr7UwEXFjp85ym0SMpedoapWfxlT-69FP4f9p-CeNRo1Yqkx-kI1SWduB8np0jOM87ptRMWkPyhbovYLX9Lk5Kih-C-uyM"
                 />
               </div>

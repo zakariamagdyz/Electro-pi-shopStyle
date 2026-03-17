@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProductCardProps {
   id: string;
@@ -25,11 +26,11 @@ export default function ProductCard({
         href={`/product/${id}`}
         className="bg-white p-4 rounded-lg custom-shadow group cursor-pointer block"
       >
-        <div className="aspect-[3/4] overflow-hidden mb-6 rounded">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+        <div className="relative aspect-[3/4] overflow-hidden mb-6 rounded">
+          <Image
             alt={imageAlt}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
             src={imageSrc}
           />
         </div>
@@ -44,9 +45,9 @@ export default function ProductCard({
   return (
     <Link href={`/product/${id}`} className="group cursor-pointer block">
       <div className="aspect-[4/5] bg-accent mb-6 overflow-hidden relative rounded">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        <Image
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
           alt={imageAlt}
           src={imageSrc}
         />

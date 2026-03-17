@@ -3,6 +3,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function RegistrationPage() {
   const heroOverlay = (
@@ -18,18 +19,18 @@ export default function RegistrationPage() {
         </p>
         <div className="mt-12 flex gap-4 items-center">
           <div className="flex -space-x-2">
-            <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className="w-full h-full object-cover"
+            <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden relative">
+              <Image
+                className="object-cover"
+                fill
                 alt="User avatar 1"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIEaVzzLVJHTldm75QfNmcvH2qXljharAQa67li6-HfiWw6XCJyDG4aSBQ0RJVRbkymfbsuFhMtDYioi3_fOK6r_E7-NdW_RI5U2K45D9J_O_k18qZPcjrYGjBVF9-3mLjS8E_Y0B_KDqWHbzC1Zi0dkMb-dgHdoSBC9Neh5AxYY54cEA8jZP-u3FD9xvTKSYOysO9A97_Y9tHMG6mLvVSDPz_qDt6WMJin6_M6dlpcUGNcNcarw6WtvwO_tuIfa10K_r0KOsRHGQ"
               />
             </div>
-            <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className="w-full h-full object-cover"
+            <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden relative">
+              <Image
+                className="object-cover"
+                fill
                 alt="User avatar 2"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_irzq3lq0D2YxrnEznjBYWe49DZHLMQEUtaemFLug_Rnu132M2MEqqRSSzlOd4TB76C-Pv0uAkJO69zPqefdH1pZcU52Py0zBTN62kGSI9smnHtZwZ72YJceSpHZ5xk22PEyHpCYbojjPtCRPZkILMGq0UaXZGIF7VxYDv-hhzhckq1l2oomNa1-IdTZNC1_t07bS2YaWr6xtf-k7U0ETfygUn-KRnN9R4bQejqA4qH-Hv3WXH8EWUTJVf6rXK4tV5-RMXpzzdxY"
               />

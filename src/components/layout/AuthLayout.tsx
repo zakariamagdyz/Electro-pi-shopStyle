@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 interface AuthLayoutProps {
   title: React.ReactNode;
@@ -39,10 +40,10 @@ export default function AuthLayout({
         {/* Artistic Canvas (Visual Side) */}
         <section className="hidden lg:flex items-center justify-center bg-accent p-24 relative overflow-hidden">
           <div className="relative w-full h-full max-w-xl aspect-[3/4] overflow-hidden rounded-lg soft-shadow z-10">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               alt={heroImageAlt}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="object-cover"
+              fill
               src={heroImageSrc}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent"></div>

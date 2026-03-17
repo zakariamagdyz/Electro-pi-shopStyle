@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 
 export default function TopNavigation() {
   return (
@@ -27,10 +28,11 @@ export default function TopNavigation() {
           <span className="material-symbols-outlined">shopping_cart</span>
         </button>
         <div className="flex items-center justify-center h-8 w-8 rounded-full overflow-hidden bg-muted cursor-pointer hover:opacity-80 transition-opacity">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             alt="User profile"
             className="w-full h-full object-cover"
+            width={32}
+            height={32}
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCda9KoyvLW6zE56hrC57s3exS7dmclqRpAXWuT_yxJS0GuSORBqEE3JKYKLpFtMTV81jjs46qAM4UXMLuVGQlwZCeb9Ibtg1BkyLuZyz86Rlq8QHALwkuMkf7F2T1thGpMhajUQADYb0nKt-WJ6vGDI6KHjt6WU8D639OTr2EfEJkAxNxX7ZyXr31-7sRHGTxGduzzynvLEfzIMHsHQvIvhLSKft-m0T_Oy4SQrueZFEyaP5jPBZpAnjpMMvZyYLrAecnYPEQTM4U"
           />
         </div>
