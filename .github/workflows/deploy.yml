@@ -1,0 +1,65 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-typecheck:
+    name: Lint & Type-Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Setting up Node.js with caching
+      - name: Setup Node.js LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # LTS version
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      # Fail-Fast: Linter check
+      - name: Run Linter
+        run: npm run lint
+
+      # Fail-Fast: Type check
+      - name: Run Type-Check
+        run: npm run type-check
+
+  deploy-vercel:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+    # Requires the prior job to complete successfully first
+    needs: lint-and-typecheck
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Runs only on Pull Requests (Preview Deployment)
+      - name: Deploy to Vercel (Preview)
+        if: github.event_name == 'pull_request'
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          
+      # Runs only on Push to Main (Production Deployment)
+      - name: Deploy to Vercel (Production)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-args: '--prod'
