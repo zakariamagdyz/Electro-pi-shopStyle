@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { Providers } from "@/components/providers/Providers";
 import { inter, interLabel, manrope } from "@/lib/fonts";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "ShopStyle",
@@ -27,6 +28,7 @@ export default function RootLayout({
         className={`${inter.variable} ${manrope.variable} ${interLabel.variable} antialiased`}
       >
         <Providers>{children}</Providers>
+        <Toaster />
       </body>
     </html>
   );

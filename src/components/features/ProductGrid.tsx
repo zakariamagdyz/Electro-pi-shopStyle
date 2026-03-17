@@ -1,8 +1,12 @@
 "use client";
 
 import { useProducts } from "@/hooks/useProducts";
-import React from "react";
+import { Loader2 } from "lucide-react";
+import React, { useEffect } from "react";
+import { toast } from "sonner";
+import ErrorState from "./ErrorState";
 import ProductCard from "./ProductCard";
+import ProductGridSkeleton from "./ProductGridSkeleton";
 
 // Clean image URLs to handle malformed data from the remote fake store
 function getCleanImageString(imageStrings: string[]): string {
@@ -22,15 +26,51 @@ function getCleanImageString(imageStrings: string[]): string {
 }
 
 export default function ProductGrid() {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useProducts();
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isError,
+    error,
+    refetch,
+    isFetching,
+  } = useProducts();
 
-  if (!data) return null;
+  // Alert the user if a *background* load more fails but we already have data
+  useEffect(() => {
+    if (isError && data) {
+      toast.error("Failed to load more products", {
+        description:
+          error?.message || "Please check your connection and try again.",
+        action: {
+          label: "Retry",
+          onClick: () => fetchNextPage(),
+        },
+      });
+    }
+  }, [isError, data, error, fetchNextPage]);
+
+  // If there's an error and NO data exists yet, show full ErrorState
+  if (isError && !data) {
+    return (
+      <ErrorState
+        message={
+          error?.message ||
+          "Unable to retrieve the products catalog. Please try again."
+        }
+        onRetry={() => refetch()}
+        className="col-span-full"
+      />
+    );
+  }
+
+  if (isFetching && !data) return <ProductGridSkeleton />;
 
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
-        {data.pages.map((group, groupIndex) => (
+        {data?.pages.map((group, groupIndex) => (
           <React.Fragment key={groupIndex}>
             {group.data.map((product) => (
               <ProductCard
@@ -56,8 +96,8 @@ export default function ProductGrid() {
           >
             {isFetchingNextPage ? (
               <>
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                Loading...
+                <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
+                <span>Loading more...</span>
               </>
             ) : (
               "Load More"

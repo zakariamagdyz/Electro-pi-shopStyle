@@ -2,6 +2,8 @@
 
 import { useProductBySlug } from "@/hooks/useProducts";
 import Image from "next/image";
+import ErrorState from "./ErrorState";
+import ProductDetailsSkeleton from "./ProductDetailsSkeleton";
 
 function getCleanImageString(imageStrings: string[]): string[] {
   if (!imageStrings || imageStrings.length === 0)
@@ -21,7 +23,27 @@ function getCleanImageString(imageStrings: string[]): string[] {
 }
 
 export default function ProductDetails({ slug }: { slug: string }) {
-  const { data: product } = useProductBySlug(slug);
+  const {
+    data: product,
+    isLoading,
+    isError,
+    error,
+    refetch,
+  } = useProductBySlug(slug);
+
+  if (isLoading && !product) return <ProductDetailsSkeleton />;
+
+  if (isError && !product)
+    return (
+      <ErrorState
+        message={
+          error?.message ||
+          "Unable to retrieve the products catalog. Please try again."
+        }
+        onRetry={() => refetch()}
+        className="col-span-full"
+      />
+    );
 
   if (!product) return null;
 

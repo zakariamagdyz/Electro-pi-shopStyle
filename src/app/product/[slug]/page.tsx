@@ -3,11 +3,11 @@ import ProductDetailsSkeleton from "@/components/features/ProductDetailsSkeleton
 import BottomNavigation from "@/components/layout/BottomNavigation";
 import Footer from "@/components/layout/Footer";
 import TopNavigation from "@/components/layout/TopNavigation";
+import { fetchProductBySlug } from "@/lib/api";
+import { getQueryClient } from "@/lib/get-query-client";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import Link from "next/link";
 import { Suspense } from "react";
-import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
-import { getQueryClient } from "@/lib/get-query-client";
-import { fetchProductBySlug } from "@/lib/api";
 
 async function PrefetchedProductDetails({ slug }: { slug: string }) {
   const queryClient = getQueryClient();
@@ -46,7 +46,7 @@ export default async function ProductDetailsPage(props: {
             <span className="font-label font-medium text-sm">
               Back to Products
             </span>
-            <div className="h-[1px] w-0 group-hover:w-full bg-primary transition-all duration-300"></div>
+            <div className="h-px w-0 group-hover:w-full bg-primary transition-all duration-300"></div>
           </Link>
         </div>
 
