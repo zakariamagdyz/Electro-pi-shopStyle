@@ -1,21 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-body",
-  subsets: ["latin"],
-});
-
-const manrope = Manrope({
-  variable: "--font-headline",
-  subsets: ["latin"],
-});
-
-const interLabel = Inter({
-  variable: "--font-label",
-  subsets: ["latin"],
-});
+import { Providers } from "@/components/providers/Providers";
+import { inter, interLabel, manrope } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "ShopStyle",
@@ -39,7 +26,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${manrope.variable} ${interLabel.variable} antialiased`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

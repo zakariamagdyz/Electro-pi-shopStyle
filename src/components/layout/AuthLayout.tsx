@@ -39,14 +39,14 @@ export default function AuthLayout({
       <main className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
         {/* Artistic Canvas (Visual Side) */}
         <section className="hidden lg:flex items-center justify-center bg-accent p-24 relative overflow-hidden">
-          <div className="relative w-full h-full max-w-xl aspect-[3/4] overflow-hidden rounded-lg soft-shadow z-10">
+          <div className="relative w-full h-full max-w-xl aspect-3/4 overflow-hidden rounded-lg soft-shadow z-10">
             <Image
               alt={heroImageAlt}
               className="object-cover"
               fill
               src={heroImageSrc}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-on-background/40 to-transparent"></div>
             {heroOverlay}
           </div>
         </section>

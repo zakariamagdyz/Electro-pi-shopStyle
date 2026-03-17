@@ -2,7 +2,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 export default function SidebarFilter() {
   return (
-    <aside className="w-full md:w-64 flex-shrink-0 space-y-12">
+    <aside className="w-full lg:w-64 shrink-0 space-y-12">
       <section>
         <h3 className="font-headline text-xs uppercase tracking-widest text-muted-foreground mb-6">
           Categories
