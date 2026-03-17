@@ -2,14 +2,14 @@ import AuthLayout from "@/components/layout/AuthLayout";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function RegistrationPage() {
   const heroOverlay = (
     <div className="absolute inset-0 p-12 flex flex-col justify-between z-20">
       <div className="max-w-md mt-auto">
-        <h1 className="font-headline text-[3.5rem] leading-[1] text-white mb-6 font-extrabold tracking-tighter">
+        <h1 className="font-headline text-[3.5rem] leading-none text-white mb-6 font-extrabold tracking-tighter">
           Define Your <br />
           Signature.
         </h1>
