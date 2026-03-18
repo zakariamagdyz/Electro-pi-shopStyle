@@ -21,7 +21,6 @@ export default function Footer() {
           <ul className="space-y-4 text-sm text-muted-foreground">
             <li>
               <Link
-                scroll
                 className="hover:text-foreground transition-colors"
                 href="#"
               >
@@ -30,7 +29,6 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                scroll
                 className="hover:text-foreground transition-colors"
                 href="#"
               >
@@ -39,7 +37,6 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                scroll
                 className="hover:text-foreground transition-colors"
                 href="#"
               >
@@ -55,7 +52,6 @@ export default function Footer() {
           <ul className="space-y-4 text-sm text-muted-foreground">
             <li>
               <Link
-                scroll
                 className="hover:text-foreground transition-colors"
                 href="#"
               >
@@ -64,7 +60,6 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                scroll
                 className="hover:text-foreground transition-colors"
                 href="#"
               >
@@ -73,7 +68,6 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                scroll
                 className="hover:text-foreground transition-colors"
                 href="#"
               >

@@ -75,7 +75,6 @@ export default async function ProductDetailsPage(props: {
           <Link
             className="flex items-center gap-2 text-muted-foreground  transition-colors group"
             href="/"
-            scroll
           >
             <span className="material-symbols-outlined text-[18px]">
               <ArrowLeft />

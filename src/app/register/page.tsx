@@ -69,7 +69,6 @@ export default function RegistrationPage() {
         <Link
           href="/login"
           className="text-primary font-bold hover:underline ml-1"
-          scroll
         >
           Log in
         </Link>

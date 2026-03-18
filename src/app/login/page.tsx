@@ -37,7 +37,6 @@ export default function LoginPage() {
           <Link
             className="text-foreground font-semibold hover:text-primary transition-colors ml-1 underline decoration-primary/30 underline-offset-4"
             href="/register"
-            scroll
           >
             Create an Account
           </Link>
