@@ -2,7 +2,13 @@
 
 import { useProductBySlug } from "@/hooks/useProducts";
 import { useAuthStore } from "@/store/authStore";
-import { BadgeCheck, HeartPlus, ShoppingCart, Truck } from "lucide-react";
+import {
+  BadgeCheck,
+  HeartPlus,
+  LoaderCircle,
+  ShoppingCart,
+  Truck,
+} from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -127,13 +133,13 @@ export default function ProductDetails({ slug }: { slug: string }) {
           </p>
           <ul className="space-y-3">
             <li className="flex items-center gap-3 text-sm text-foreground">
-              <span className="material-symbols-outlined text-[18px] text-tertiary">
+              <span className=" text-[18px] text-tertiary">
                 <BadgeCheck />
               </span>
               <span>100% Authentic Product</span>
             </li>
             <li className="flex items-center gap-3 text-sm text-foreground">
-              <span className="material-symbols-outlined text-[18px] text-tertiary">
+              <span className=" text-[18px] text-tertiary">
                 <BadgeCheck />
               </span>
               <span>Sustainably Handled</span>
@@ -190,11 +196,11 @@ export default function ProductDetails({ slug }: { slug: string }) {
                 className="btn-gradient text-white py-5 px-8 rounded font-headline font-bold text-lg tracking-wide custom-shadow active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
               >
                 {isAdding ? (
-                  <span className="material-symbols-outlined animate-spin mr-2 text-[20px]">
-                    sync
+                  <span className=" animate-spin mr-2 text-[20px]">
+                    <LoaderCircle />
                   </span>
                 ) : (
-                  <span className="material-symbols-outlined mr-2 text-[20px]">
+                  <span className=" mr-2 text-[20px]">
                     <ShoppingCart />
                   </span>
                 )}
@@ -223,7 +229,7 @@ export default function ProductDetails({ slug }: { slug: string }) {
           {mounted ? (
             isAuthenticated && (
               <button className="flex items-center justify-center gap-2 py-4 px-8 border border-border hover:bg-accent transition-colors rounded font-label text-sm font-semibold">
-                <span className="material-symbols-outlined text-[20px]">
+                <span className=" text-[20px]">
                   <HeartPlus />
                 </span>
                 Add to Wishlist
