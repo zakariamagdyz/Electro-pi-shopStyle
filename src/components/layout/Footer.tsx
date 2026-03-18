@@ -20,17 +20,29 @@ export default function Footer() {
           </h4>
           <ul className="space-y-4 text-sm text-muted-foreground">
             <li>
-              <Link className="hover:text-foreground transition-colors" href="#">
+              <Link
+                scroll
+                className="hover:text-foreground transition-colors"
+                href="#"
+              >
                 Shipping & Returns
               </Link>
             </li>
             <li>
-              <Link className="hover:text-foreground transition-colors" href="#">
+              <Link
+                scroll
+                className="hover:text-foreground transition-colors"
+                href="#"
+              >
                 Contact Us
               </Link>
             </li>
             <li>
-              <Link className="hover:text-foreground transition-colors" href="#">
+              <Link
+                scroll
+                className="hover:text-foreground transition-colors"
+                href="#"
+              >
                 Size Guide
               </Link>
             </li>
@@ -42,17 +54,29 @@ export default function Footer() {
           </h4>
           <ul className="space-y-4 text-sm text-muted-foreground">
             <li>
-              <Link className="hover:text-foreground transition-colors" href="#">
+              <Link
+                scroll
+                className="hover:text-foreground transition-colors"
+                href="#"
+              >
                 Instagram
               </Link>
             </li>
             <li>
-              <Link className="hover:text-foreground transition-colors" href="#">
+              <Link
+                scroll
+                className="hover:text-foreground transition-colors"
+                href="#"
+              >
                 Newsletter
               </Link>
             </li>
             <li>
-              <Link className="hover:text-foreground transition-colors" href="#">
+              <Link
+                scroll
+                className="hover:text-foreground transition-colors"
+                href="#"
+              >
                 Journal
               </Link>
             </li>

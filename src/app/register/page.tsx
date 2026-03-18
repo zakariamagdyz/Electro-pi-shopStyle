@@ -6,7 +6,8 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Account",
-  description: "Join ShopStyle to unlock an exclusive curation of modern fashion and essential lifestyle products.",
+  description:
+    "Join ShopStyle to unlock an exclusive curation of modern fashion and essential lifestyle products.",
 };
 
 export default function RegistrationPage() {
@@ -68,6 +69,7 @@ export default function RegistrationPage() {
         <Link
           href="/login"
           className="text-primary font-bold hover:underline ml-1"
+          scroll
         >
           Log in
         </Link>

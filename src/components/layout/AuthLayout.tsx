@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
 
 interface AuthLayoutProps {
   title: React.ReactNode;
@@ -29,6 +29,7 @@ export default function AuthLayout({
       {/* Linear Process Header (Simplified Brand Presence) */}
       <header className="fixed top-0 left-0 w-full p-8 flex justify-center lg:justify-start z-50">
         <Link
+          scroll
           className="font-headline text-2xl tracking-tight text-foreground"
           href="/"
         >
@@ -72,6 +73,7 @@ export default function AuthLayout({
                   key={link.label}
                   className="hover:text-primary transition-colors"
                   href={link.href}
+                  scroll
                 >
                   {link.label}
                 </Link>

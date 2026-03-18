@@ -23,13 +23,19 @@ export async function generateMetadata(props: {
       openGraph: {
         title: product.title,
         description: product.description,
-        images: product.images && product.images.length > 0 ? [product.images[0]] : [],
+        images:
+          product.images && product.images.length > 0
+            ? [product.images[0]]
+            : [],
       },
       twitter: {
         card: "summary_large_image",
         title: product.title,
         description: product.description,
-        images: product.images && product.images.length > 0 ? [product.images[0]] : [],
+        images:
+          product.images && product.images.length > 0
+            ? [product.images[0]]
+            : [],
       },
     };
   } catch {
@@ -69,6 +75,7 @@ export default async function ProductDetailsPage(props: {
           <Link
             className="flex items-center gap-2 text-muted-foreground  transition-colors group"
             href="/"
+            scroll
           >
             <span className="material-symbols-outlined text-[18px]">
               <ArrowLeft />

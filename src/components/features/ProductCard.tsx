@@ -12,7 +12,11 @@ export default function ProductCard({
   price,
 }: ProductCardProps) {
   return (
-    <Link href={`/product/${slug}`} className="group cursor-pointer block">
+    <Link
+      scroll
+      href={`/product/${slug}`}
+      className="group cursor-pointer block"
+    >
       <div className="aspect-4/5 bg-accent mb-6 overflow-hidden relative rounded">
         <Image
           fill
