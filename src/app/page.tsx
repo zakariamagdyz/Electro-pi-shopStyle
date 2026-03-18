@@ -1,13 +1,14 @@
-import SidebarFilter from "@/components/features/SidebarFilter";
 import ProductGrid from "@/components/features/ProductGrid";
 import ProductGridSkeleton from "@/components/features/ProductGridSkeleton";
-import { Suspense } from "react";
+import SidebarFilter from "@/components/features/SidebarFilter";
 import BottomNavigation from "@/components/layout/BottomNavigation";
 import Footer from "@/components/layout/Footer";
 import TopNavigation from "@/components/layout/TopNavigation";
-import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
-import { getQueryClient } from "@/lib/get-query-client";
 import { fetchProducts } from "@/lib/api";
+import { getQueryClient } from "@/lib/get-query-client";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { ChevronDown } from "lucide-react";
+import { Suspense } from "react";
 
 async function PrefetchedProductGrid() {
   const queryClient = getQueryClient();
@@ -48,7 +49,7 @@ export default function Home() {
             <button className="flex items-center gap-2 hover:text-foreground transition-colors">
               Sort by: Recommended
               <span className="material-symbols-outlined text-[18px]">
-                expand_more
+                <ChevronDown />
               </span>
             </button>
           </div>

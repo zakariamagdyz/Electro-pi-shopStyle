@@ -1,7 +1,12 @@
 "use client";
 
 import { useProductBySlug } from "@/hooks/useProducts";
+import { useAuthStore } from "@/store/authStore";
+import { BadgeCheck, HeartPlus, ShoppingCart, Truck } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import ErrorState from "./ErrorState";
 import ProductDetailsSkeleton from "./ProductDetailsSkeleton";
 
@@ -23,6 +28,16 @@ function getCleanImageString(imageStrings: string[]): string[] {
 }
 
 export default function ProductDetails({ slug }: { slug: string }) {
+  const router = useRouter();
+  const { isAuthenticated } = useAuthStore();
+  const [mounted, setMounted] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
+
+  // Workaround react hook limitation
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timeoutId);
+  }, []);
   const {
     data: product,
     isLoading,
@@ -113,13 +128,13 @@ export default function ProductDetails({ slug }: { slug: string }) {
           <ul className="space-y-3">
             <li className="flex items-center gap-3 text-sm text-foreground">
               <span className="material-symbols-outlined text-[18px] text-tertiary">
-                check_circle
+                <BadgeCheck />
               </span>
               <span>100% Authentic Product</span>
             </li>
             <li className="flex items-center gap-3 text-sm text-foreground">
               <span className="material-symbols-outlined text-[18px] text-tertiary">
-                check_circle
+                <BadgeCheck />
               </span>
               <span>Sustainably Handled</span>
             </li>
@@ -143,16 +158,16 @@ export default function ProductDetails({ slug }: { slug: string }) {
               Select Size
             </label>
             <div className="grid grid-cols-4 gap-2">
-              <button className="py-3 text-xs font-semibold border border-border/30 hover:bg-secondary transition-colors rounded">
+              <button className="py-3 text-xs font-semibold border border-border hover:bg-secondary transition-colors rounded">
                 XS
               </button>
-              <button className="py-3 text-xs font-semibold bg-primary text-white rounded">
+              <button className="py-3 text-xs font-semibold border border-border hover:bg-secondary transition-colors rounded">
                 S
               </button>
-              <button className="py-3 text-xs font-semibold border border-border/30 hover:bg-secondary transition-colors rounded">
+              <button className="py-3 text-xs font-semibold border border-border hover:bg-secondary transition-colors rounded">
                 M
               </button>
-              <button className="py-3 text-xs font-semibold border border-border/30 hover:bg-secondary transition-colors rounded">
+              <button className="py-3 text-xs font-semibold border border-border hover:bg-secondary transition-colors rounded">
                 L
               </button>
             </div>
@@ -160,24 +175,69 @@ export default function ProductDetails({ slug }: { slug: string }) {
         </div>
 
         {/* Primary CTA */}
-        <div className="flex flex-col gap-4">
-          <button className="btn-gradient text-white py-5 px-8 rounded font-headline font-bold text-lg tracking-wide custom-shadow active:scale-[0.98] transition-all">
-            Add to Cart
-          </button>
-          <button className="flex items-center justify-center gap-2 py-4 px-8 border border-border/40 hover:bg-accent transition-colors rounded font-label text-sm font-semibold">
-            <span className="material-symbols-outlined text-[20px]">
-              favorite
-            </span>
-            Add to Wishlist
-          </button>
+        <div className="flex flex-col gap-4 transition-all duration-300">
+          {mounted ? (
+            isAuthenticated ? (
+              <button
+                onClick={() => {
+                  setIsAdding(true);
+                  setTimeout(() => {
+                    setIsAdding(false);
+                    toast.success("Added to cart successfully!");
+                  }, 600);
+                }}
+                disabled={isAdding}
+                className="btn-gradient text-white py-5 px-8 rounded font-headline font-bold text-lg tracking-wide custom-shadow active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
+              >
+                {isAdding ? (
+                  <span className="material-symbols-outlined animate-spin mr-2 text-[20px]">
+                    sync
+                  </span>
+                ) : (
+                  <span className="material-symbols-outlined mr-2 text-[20px]">
+                    <ShoppingCart />
+                  </span>
+                )}
+                {isAdding ? "Adding..." : "Add to Cart"}
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  const loginUrl = new URL("/login", window.location.href);
+                  loginUrl.searchParams.set(
+                    "callbackUrl",
+                    window.location.pathname,
+                  );
+                  router.push(loginUrl.toString());
+                }}
+                className="bg-neutral-900 text-white py-5 px-8 rounded font-headline font-bold text-lg tracking-wide custom-shadow active:scale-[0.98] transition-all hover:bg-neutral-800"
+              >
+                Login to Purchase
+              </button>
+            )
+          ) : (
+            // Skeleton loader for button to prevent hydration shift
+            <div className="w-full h-[68px] bg-accent animate-pulse rounded"></div>
+          )}
+
+          {mounted ? (
+            isAuthenticated && (
+              <button className="flex items-center justify-center gap-2 py-4 px-8 border border-border hover:bg-accent transition-colors rounded font-label text-sm font-semibold">
+                <span className="material-symbols-outlined text-[20px]">
+                  <HeartPlus />
+                </span>
+                Add to Wishlist
+              </button>
+            )
+          ) : (
+            <div className="w-full h-[68px] bg-accent animate-pulse rounded"></div>
+          )}
         </div>
 
         {/* Shipping / Returns Info */}
         <div className="mt-12 p-6 bg-white rounded-xl border border-border/10">
           <div className="flex gap-4 items-start">
-            <span className="material-symbols-outlined text-primary">
-              local_shipping
-            </span>
+            <Truck />
             <div>
               <p className="text-sm font-bold text-foreground mb-1">
                 Complimentary Shipping

@@ -1,7 +1,5 @@
+import RegisterForm from "@/components/features/RegisterForm";
 import AuthLayout from "@/components/layout/AuthLayout";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -57,99 +55,7 @@ export default function RegistrationPage() {
       heroImageSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuDm9O1hn8LStkAS5uvx4oG2Hv_U8wtMnagyttbE53ImkXmE1T-qh37EzHzT6uOH2FJcMwW4IiJDBW8Qg5Pzj-CDeOMgp5FMcgL-j0SYpTVTmcmI6dAZ1vtV3Etnc-2732BKLmpj_mZbtNQPFbPH8BCvydKRe8V1MV3JzLh_D0RiWo5saDSs_-ThjQi8Yc7bI7JC6z7ZuGrAp_wjw3MondZjSz6pigDsw-1-pXAhHntgTM5MbumCft7HNpVVOKxGV3AFz0rCKXLwadw"
       heroOverlay={heroOverlay}
     >
-      <form className="space-y-8">
-        <div className="space-y-6">
-          <div className="input-container group">
-            <Label
-              htmlFor="username"
-              className="block text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2"
-            >
-              Username
-            </Label>
-
-            <div className="relative">
-              <Input
-                id="username"
-                placeholder="alexander_vane"
-                required
-                type="text"
-              />
-              <div className="input-underline"></div>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="input-container group">
-              <Label
-                htmlFor="password"
-                className="block text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2"
-              >
-                Password
-              </Label>
-              <div className="relative">
-                <Input
-                  id="password"
-                  placeholder="••••••••"
-                  required
-                  type="password"
-                />
-                <div className="input-underline"></div>
-              </div>
-            </div>
-            <div className="input-container group">
-              <Label
-                htmlFor="confirm-password"
-                className="block text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2"
-              >
-                Confirm Password
-              </Label>
-              <div className="relative">
-                <Input
-                  id="confirm-password"
-                  placeholder="••••••••"
-                  required
-                  type="password"
-                />
-                <div className="input-underline"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-start gap-3 group">
-          <div className="flex items-center h-5">
-            <Checkbox id="terms" required />
-          </div>
-          <Label
-            htmlFor="terms"
-            className="text-sm text-muted-foreground leading-tight font-normal"
-          >
-            I agree to the{" "}
-            <Link
-              href="#"
-              className="text-foreground font-semibold underline decoration-outline-variant/40 hover:decoration-primary transition-all"
-            >
-              Terms of Service
-            </Link>{" "}
-            and{" "}
-            <Link
-              href="#"
-              className="text-foreground font-semibold underline decoration-outline-variant/40 hover:decoration-primary transition-all"
-            >
-              Privacy Policy
-            </Link>
-            .
-          </Label>
-        </div>
-
-        <div className="pt-4">
-          <button
-            className="w-full btn-gradient from-primary to-primary-dim text-white py-5 rounded shadow-[0_12px_40px_rgba(54,49,50,0.12)] hover:shadow-[0_12px_50px_rgba(54,49,50,0.2)] transition-all duration-300 font-headline font-bold text-lg tracking-wide active:scale-[0.98]"
-            type="button"
-          >
-            Create Account
-          </button>
-        </div>
-      </form>
+      <RegisterForm />
 
       <p className="text-center text-muted-foreground text-sm pt-4">
         Already a member?

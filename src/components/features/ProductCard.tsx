@@ -1,4 +1,5 @@
 import { ProductCardProps } from "@/types";
+import { Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,7 +21,9 @@ export default function ProductCard({
           src={imageSrc}
         />
         <button className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-md p-3 opacity-0 group-hover:opacity-100 transition-opacity rounded">
-          <span className="material-symbols-outlined text-sm">add</span>
+          <span className="material-symbols-outlined text-sm">
+            <Plus />
+          </span>
         </button>
       </div>
       <div className="space-y-1">

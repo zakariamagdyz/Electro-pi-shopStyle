@@ -2,7 +2,6 @@ import ProductDetailsSkeleton from "@/components/features/ProductDetailsSkeleton
 import BottomNavigation from "@/components/layout/BottomNavigation";
 import Footer from "@/components/layout/Footer";
 import TopNavigation from "@/components/layout/TopNavigation";
-import Link from "next/link";
 
 export default function Loading() {
   return (

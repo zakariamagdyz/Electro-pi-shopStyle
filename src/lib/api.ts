@@ -25,10 +25,6 @@ export async function fetchProducts({ pageParam = 0 }): Promise<{
 }
 
 export async function fetchProductBySlug(slug: string): Promise<Product> {
-  // Using the requested slug/id endpoint mapping from Platzi fake store API
-  // Using /products/slug/[slug]? or falling back to ids because their actual fake store
-  // API uses IDs for individual fetches, but we will hit whatever endpoint user mentioned.
-  // We'll try to just hit the ID directly per standard Platzi API or string slug.
   const res = await fetch(`${API_BASE_URL}/products/slug/${slug}`);
 
   if (!res.ok) {

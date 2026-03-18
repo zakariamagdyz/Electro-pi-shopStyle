@@ -6,6 +6,7 @@ import TopNavigation from "@/components/layout/TopNavigation";
 import { fetchProductBySlug } from "@/lib/api";
 import { getQueryClient } from "@/lib/get-query-client";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -34,19 +35,17 @@ export default async function ProductDetailsPage(props: {
       <TopNavigation />
 
       <main className="max-w-[1440px] mx-auto px-6 lg:px-12 py-8 lg:py-16">
-        {/* Breadcrumb / Back Navigation */}
         <div className="mb-12">
           <Link
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+            className="flex items-center gap-2 text-muted-foreground  transition-colors group"
             href="/"
           >
             <span className="material-symbols-outlined text-[18px]">
-              arrow_back
+              <ArrowLeft />
             </span>
             <span className="font-label font-medium text-sm">
               Back to Products
             </span>
-            <div className="h-px w-0 group-hover:w-full bg-primary transition-all duration-300"></div>
           </Link>
         </div>
 
