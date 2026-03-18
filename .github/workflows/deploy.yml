@@ -34,6 +34,10 @@ jobs:
       - name: Run Type-Check
         run: npm run type-check
 
+      # Fail-Fast: Tests
+      - name: Run Tests
+        run: npm run test
+
   deploy-vercel:
     name: Deploy to Vercel
     runs-on: ubuntu-latest
