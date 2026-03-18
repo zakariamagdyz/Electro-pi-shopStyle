@@ -6,8 +6,12 @@ import { Toaster } from "@/components/ui/sonner";
 import { inter, interLabel, manrope } from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: "ShopStyle",
-  description: "Curating timeless pieces for the modern aesthetic.",
+  title: {
+    template: "%s | ShopStyle",
+    default: "ShopStyle - Modern E-Commerce storefront",
+  },
+  description: "Curating timeless pieces for the modern aesthetic. Discover premium products with a seamless shopping experience.",
+  keywords: ["e-commerce", "fashion", "modern", "shopstyle", "premium products"],
 };
 
 export default function RootLayout({

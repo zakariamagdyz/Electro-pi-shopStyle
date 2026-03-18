@@ -8,7 +8,13 @@ import { fetchProducts } from "@/lib/api";
 import { getQueryClient } from "@/lib/get-query-client";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { ChevronDown } from "lucide-react";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Shop All Products",
+  description: "Browse our complete collection of modern, high-quality products. Filter by category, price, and find your perfect match.",
+};
 
 async function PrefetchedProductGrid() {
   const queryClient = getQueryClient();

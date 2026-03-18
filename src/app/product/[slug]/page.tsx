@@ -7,8 +7,38 @@ import { fetchProductBySlug } from "@/lib/api";
 import { getQueryClient } from "@/lib/get-query-client";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
+
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const params = await props.params;
+  try {
+    const product = await fetchProductBySlug(params.slug);
+    return {
+      title: product.title,
+      description: product.description,
+      openGraph: {
+        title: product.title,
+        description: product.description,
+        images: product.images && product.images.length > 0 ? [product.images[0]] : [],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: product.title,
+        description: product.description,
+        images: product.images && product.images.length > 0 ? [product.images[0]] : [],
+      },
+    };
+  } catch {
+    return {
+      title: "Product Not Found",
+      description: "The requested product could not be found.",
+    };
+  }
+}
 
 async function PrefetchedProductDetails({ slug }: { slug: string }) {
   const queryClient = getQueryClient();

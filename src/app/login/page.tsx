@@ -1,6 +1,12 @@
 import LoginForm from "@/components/features/LoginForm";
 import AuthLayout from "@/components/layout/AuthLayout";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Login",
+  description: "Sign in to your ShopStyle account to manage orders, view your wishlist, and enjoy a personalized shopping experience.",
+};
 
 export default function LoginPage() {
   const heroOverlay = (

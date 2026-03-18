@@ -1,7 +1,13 @@
 import RegisterForm from "@/components/features/RegisterForm";
 import AuthLayout from "@/components/layout/AuthLayout";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Create Account",
+  description: "Join ShopStyle to unlock an exclusive curation of modern fashion and essential lifestyle products.",
+};
 
 export default function RegistrationPage() {
   const heroOverlay = (
